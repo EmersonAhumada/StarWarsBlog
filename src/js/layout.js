@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { Planetas } from "./views/planetas";
+import { DetallePlanetas } from "./views/detallePlanetas";
+import { Vehiculos } from "./views/vehiculos";
+import { DetalleVehiculos } from "./views/detalleVehiculos";
+import { Personajes } from "./views/personajes";
+import { DetallePersonaje } from "./views/detallePersonaje";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
+import { Navbar1 } from "./component/navbar";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -17,19 +19,31 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Navbar1 />
 					<Switch>
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/planetas">
+							<Planetas />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/detallePlanetas/:theid">
+							<DetallePlanetas />
+						</Route>
+						<Route exact path="/personajes">
+							<Personajes />
+						</Route>
+						<Route exact path="/detallePersonaje/:theid">
+							<DetallePersonaje />
+						</Route>
+						<Route exact path="/vehiculos">
+							<Vehiculos />
+						</Route>
+						<Route exact path="/detalleVehiculos/:theid">
+							<DetalleVehiculos />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
